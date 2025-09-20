@@ -6,7 +6,7 @@ from io import StringIO
 # --- Step 1: Extract ---
 print("--- Starting ETL Pipeline ---")
 print("Step 1: Extracting data from FRED...")
-fred = Fred(api_key='')
+fred = Fred(api_key='86e1be2f0ce607c8581a69f03a559d96')
 series_id = 'PAYEMS'
 df = fred.get_series(series_id)
 jobs_df = pd.DataFrame(df, columns=['value']).reset_index().rename(columns={'index': 'date'})
@@ -58,5 +58,6 @@ finally:
         cursor.close()
         conn.close()
         print("Database connection closed.")
+
 
 print("--- ETL Pipeline complete! ---")
